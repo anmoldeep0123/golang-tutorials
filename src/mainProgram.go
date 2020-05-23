@@ -6,15 +6,25 @@ import (
 )
 
 func main() {
-	readOperationFromInterface();
+	readWriteOperationUsingInterface();
 }
 
-func readOperationFromInterface() {
-	filePath := "/Users/adeep/Documents/personal/jcg/May/import/info.txt"
-	fileHandlerImpl := interfacez.FileHandlerImpl(filePath)
+func readWriteOperationUsingInterface() {
+	readFilePath := "/Users/adeep/Documents/personal/jcg/May/import/info.txt"
+	writeFilePath := "/Users/adeep/workspace/icode/goAdee/resources/sample.txt"
+	writeContent := "Hello World - Sample File\n"
+	
+	readFileHandlerImpl := interfacez.FileHandlerImpl(readFilePath)
+	writeFileHandlerImpl := interfacez.FileHandlerImpl(writeFilePath)
 	var fileHandler interfacez.FileHandler
-	fileHandler = fileHandlerImpl
-	fileHandler.ReadFileInMem(filePath)
+	
+	fileHandler = readFileHandlerImpl
+	fileHandler.ReadFileInMem()
+	fileHandler.ReadInSmallChunks()
+	fileHandler.ReadFileLineByLine()
+	
+	fileHandler = writeFileHandlerImpl	
+	fileHandler.CreateFileAndWriteContent(writeContent)
 }
 
 func readOperations() {
