@@ -1,24 +1,18 @@
 package main
 
 import (
-	"fmt"
 	"golangtuts/fileMgmt"
 	"golangtuts/interfacez"
-	"golangtuts/model"
+	"golangtuts/utils"
 )
 
 func main() {
-	structImplementInterface()
+	structImplementInterface("Operations")
 }
 
-func structImplementInterface() {
-	var employee interfacez.Employee = model.Manager{
-		FirstName:   "Sam",
-		LastName:    "Adolf",
-		Salary:      98415.70,
-		LeavesTaken: 3,
-	}
-	fmt.Println(employee.SalaryForLeavesTaken())
+func structImplementInterface(employeeType string) {
+	var employee interfacez.Employee = utils.GetEmployee(employeeType)
+	employee.DescribeEmployee()
 }
 
 func readWriteOperationUsingInterface() {
