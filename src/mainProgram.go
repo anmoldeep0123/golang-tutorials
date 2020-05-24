@@ -4,16 +4,15 @@ import (
 	"golangtuts/fileMgmt"
 	"golangtuts/interfacez"
 	"golangtuts/utils"
+	"fmt"
 )
 
 func main() {
-	structImplementInterface("Operations")
+	var employees []interfacez.Employee = utils.CreateEmployees()
+	utils.CreateAndDescribeEmployee("HR")
+	fmt.Println(employees)
 }
 
-func structImplementInterface(employeeType string) {
-	var employee interfacez.Employee = utils.GetEmployee(employeeType)
-	employee.DescribeEmployee()
-}
 
 func readWriteOperationUsingInterface() {
 	readFilePath := "/Users/adeep/Documents/personal/jcg/May/import/info.txt"
