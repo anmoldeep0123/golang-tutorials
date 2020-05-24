@@ -6,15 +6,27 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"path/filepath"
 )
 
-func ReadFileInMem(filePath string) {
+func ListFiles(filePath string) []string {
+	var files []string
+	filepath.Walk(filePath, func(path string, info os.FileInfo, err error) error {
+		if !info.IsDir() {
+			files = append(files, path)
+		}
+		return nil
+	})
+	return files
+}
+
+func ReadFileInMem(filePath string) string {
 	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
 		fmt.Println("Error while reading file ", err)
-		return
+		return "nil"
 	}
-	fmt.Println("Contents of the file are : ", string(data))
+	return string(data)
 }
 
 func ReadInSmallChunks(filePath string) {

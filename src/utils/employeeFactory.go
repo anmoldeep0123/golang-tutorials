@@ -1,9 +1,9 @@
 package utils
 
 import (
+	"fmt"
 	"golangtuts/interfacez"
 	"golangtuts/model"
-	"fmt"
 )
 
 func GetEmployee(employeeRole string) interfacez.Employee {
@@ -11,6 +11,7 @@ func GetEmployee(employeeRole string) interfacez.Employee {
 	if employeeRole == "Manager" {
 		fmt.Println("Constructing a Manager")
 		employee = model.Manager{
+			Alias:       "adee",
 			FirstName:   "Anmol",
 			LastName:    "Deep",
 			Role:        "Manager",
@@ -20,6 +21,7 @@ func GetEmployee(employeeRole string) interfacez.Employee {
 	} else if employeeRole == "HR" {
 		fmt.Println("Constructing an HR")
 		employee = model.HR{
+			Alias:       "sirani",
 			FirstName:   "Smrita",
 			LastName:    "Irani",
 			Role:        "Human Resources",
@@ -29,6 +31,7 @@ func GetEmployee(employeeRole string) interfacez.Employee {
 	} else {
 		fmt.Println("Constructing an Operations")
 		employee = model.Operations{
+			Alias:       "rredyy",
 			FirstName:   "Ram",
 			LastName:    "Reddy",
 			Role:        "Operations",

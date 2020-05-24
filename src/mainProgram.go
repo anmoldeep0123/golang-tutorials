@@ -1,18 +1,35 @@
 package main
 
 import (
+	"fmt"
 	"golangtuts/fileMgmt"
 	"golangtuts/interfacez"
+	"golangtuts/model"
 	"golangtuts/utils"
-	"fmt"
 )
 
 func main() {
+	recordAchievements()
+}
+
+func recordAchievements() {
+	var emp interfacez.Employee = utils.CreateEmployee("HR")
+	var achv interfacez.Achievements = model.WorkAchievements{
+		Name:     "Employee Of The Month",
+		Place:    "Bangalore",
+		Year:     2019,
+		Employee: emp,
+	}
+	achv.RecordAnAchievement()
+	achv.FetchAllAchievements()
+	achv.EmployeeDetails()
+}
+
+func dealWithEmployees() {
 	var employees []interfacez.Employee = utils.CreateEmployees()
 	utils.CreateAndDescribeEmployee("HR")
 	fmt.Println(employees)
 }
-
 
 func readWriteOperationUsingInterface() {
 	readFilePath := "/Users/adeep/Documents/personal/jcg/May/import/info.txt"

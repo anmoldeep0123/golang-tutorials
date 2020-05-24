@@ -1,10 +1,11 @@
 package interfacez
 
-import ()
-
 type FileHandler interface {
-	ReadFileInMem()
+	ReadFileInMem() string
 	ReadInSmallChunks()
 	ReadFileLineByLine()
-	CreateFileAndWriteContent(fileContent string)   
+	CreateFileAndWriteContent(fileContent string)
+	CreateDirectory()
+	WriteContent(fileContent string)
+	ListFiles() []string
 }

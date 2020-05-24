@@ -5,6 +5,7 @@ import (
 )
 
 type Manager struct {
+	Alias       string
 	FirstName   string
 	LastName    string
 	Role        string
@@ -17,5 +18,9 @@ func (e Manager) SalaryForLeavesTaken() float32 {
 }
 
 func (e Manager) DescribeEmployee() {
-	fmt.Println("Employee ", e.Role, " Details ", e.FirstName, e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+	fmt.Println("Employee ", e.Role, " Details ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+}
+
+func (e Manager) GetAlias() string {
+	return e.Alias
 }

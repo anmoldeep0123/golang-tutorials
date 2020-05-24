@@ -5,6 +5,7 @@ import (
 )
 
 type Operations struct {
+	Alias       string
 	FirstName   string
 	LastName    string
 	Role        string
@@ -18,4 +19,8 @@ func (e Operations) SalaryForLeavesTaken() float32 {
 
 func (e Operations) DescribeEmployee() {
 	fmt.Println("Employee ", e.Role, " Details ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+}
+
+func (e Operations) GetAlias() string {
+	return e.Alias
 }

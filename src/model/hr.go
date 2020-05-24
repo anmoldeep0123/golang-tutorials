@@ -5,6 +5,7 @@ import (
 )
 
 type HR struct {
+	Alias       string
 	FirstName   string
 	LastName    string
 	Role        string
@@ -17,5 +18,9 @@ func (e HR) SalaryForLeavesTaken() float32 {
 }
 
 func (e HR) DescribeEmployee() {
-	fmt.Println("Employee ", e.Role, " Details ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+	fmt.Println("Employee ", e.Role, " Details ", e.Alias, " - ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+}
+
+func (e HR) GetAlias() string {
+	return e.Alias
 }

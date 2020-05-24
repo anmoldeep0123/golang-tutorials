@@ -10,14 +10,14 @@ func CreateEmployees() []interfacez.Employee {
 	var employees [5]interfacez.Employee
 	employeeType := [count]string{"HR", "Operations", "HR", "Manager", "HR"}
 	for i := 0; i < count; i++ {
-		employees[i] = createEmployee(employeeType[i])
+		employees[i] = CreateEmployee(employeeType[i])
 		fmt.Println(employees[i])
 	}
 	return employees[:]
 }
 
 func CreateAndDescribeEmployee(employeeType string) {
-	var employee interfacez.Employee = createEmployee(employeeType)
+	var employee interfacez.Employee = CreateEmployee(employeeType)
 	employeeDetails(employee)
 }
 
@@ -25,6 +25,6 @@ func employeeDetails(employee interfacez.Employee) {
 	employee.DescribeEmployee()
 }
 
-func createEmployee(employeeType string) interfacez.Employee {
+func CreateEmployee(employeeType string) interfacez.Employee {
 	return GetEmployee(employeeType)
 }
