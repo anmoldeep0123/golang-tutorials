@@ -18,7 +18,7 @@ func (e Manager) SalaryForLeavesTaken() float32 {
 }
 
 func (e Manager) DescribeEmployee() {
-	fmt.Println("Employee ", e.Role, " Details ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
+	fmt.Println("Manager -> DescribeEmployee : Employee ", e.Role, " Details ", e.FirstName, " ", e.LastName, " , ", "Draws ", e.Salary, " Leaves Taken ", e.LeavesTaken)
 }
 
 func (e Manager) GetAlias() string {

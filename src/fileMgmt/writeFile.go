@@ -19,7 +19,7 @@ func CreateFileInResources(filePathName string, dataToWrite string) {
 	multiLineStr := []string{"\nWelcome to the world of Go1.", "Go is a compiled language.", "It is easy to learn Go."}
 	filePtr, err := os.Create(filePathName)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("CreateFileInResources ", err)
 		return
 	}
 	writeOverWriteFile(filePtr, dataToWrite)
@@ -27,7 +27,7 @@ func CreateFileInResources(filePathName string, dataToWrite string) {
 	writeLineByLine(filePtr, multiLineStr)
 	err = filePtr.Close()
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("CreateFileInResources ", err)
 		return
 	}
 	newLine := "File handling is easy."
@@ -40,7 +40,7 @@ func OpenAndAppendToFile(fileName string, data string) {
 	}
 	filePtr, err := os.OpenFile(fileName, os.O_APPEND|os.O_WRONLY, 0644)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("OpenAndAppendToFile ", err)
 		return
 	}
 	_, err = fmt.Fprintln(filePtr, data)
@@ -54,7 +54,7 @@ func OpenAndAppendToFile(fileName string, data string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("Data appended successfully")
+	fmt.Println("OpenAndAppendToFile: Data appended successfully")
 }
 
 func writeOverWriteFile(filePtr *os.File, data string) {
@@ -74,14 +74,14 @@ func writeBytesToFile(filePtr *os.File, byteArrayToWrite []byte) {
 		filePtr.Close()
 		return
 	}
-	fmt.Println(bytezz, "bytes written successfully")
+	fmt.Println(bytezz, "writeBytesToFile : bytes written successfully")
 }
 
 func writeLineByLine(filePtr *os.File, data []string) {
 	for _, v := range data {
 		fmt.Fprintln(filePtr, v)
 	}
-	fmt.Println("Data written successfully")
+	fmt.Println("writeLineByLine : Data written successfully")
 }
 
 func fileExists(filename string) bool {
@@ -103,7 +103,7 @@ func dirExists(filename string) bool {
 func createNewFile(filePathName string) {
 	_, err := os.Create(filePathName)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("createNewFile ", err)
 		return
 	}
 }

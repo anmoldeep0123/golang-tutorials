@@ -28,12 +28,12 @@ func (achievements WorkAchievements) FetchAllAchievements() {
 	achvFiles = fileHandler.ListFiles()
 	for i := 0; i < len(achvFiles); i++ {
 		fileHandler = interfacez.FileHandlerImpl(achvFiles[i])
-		fmt.Println(fileHandler.ReadFileInMem())
+		fmt.Println("WorkAchievements -> FetchAllAchievements : ", fileHandler.ReadFileInMem())
 	}
 }
 
 func (achievements WorkAchievements) EmployeeDetails() {
-	fmt.Println(achievements.Employee.GetAlias())
+	fmt.Println("WorkAchievements -> EmployeeDetails ", achievements.Employee.GetAlias())
 }
 
 func writeAchievementToFile(employee interfacez.Employee, fileHandler interfacez.FileHandler) {

@@ -2,42 +2,22 @@ package main
 
 import (
 	"fmt"
+	"golangtuts/driver"
 	"golangtuts/fileMgmt"
 	"golangtuts/interfacez"
-	"golangtuts/model"
-	"golangtuts/utils"
 )
 
 func main() {
-	var cache = utils.MemCache{
-		Cache: make(map[string]string),
-	}
-	cache.AddToCache("Anmol", "Deep")
-	cache.AddToCache("Nitika", "Qazi")
-	cache.AddToCache("Anila", "Koul")
-	fmt.Println(cache.Get("Anila"))
-	cache.AddToCache("Another", "Value")
-	cache.Remove("Nitika")
-	fmt.Println(cache.KeyExists("JUNK"))
-}
+	ch1 := make(chan string)
+	ch2 := make(chan string)
+	ch3 := make(chan string)
+	go driver.CacheExamples(ch1)
+	fmt.Println("Channel 1 Output", <-ch1)
+	go driver.GoCompositions(ch2)
+	fmt.Println("Channel 2 Output", <-ch2)
+	go driver.DealWithEmployees(ch3)
+	fmt.Println("Channel 3 Output", <-ch3)
 
-func goCompositions() {
-	var emp interfacez.Employee = utils.CreateEmployee("Operations")
-	var achv interfacez.Achievements = model.WorkAchievements{
-		Name:     "Employee Of The Month",
-		Place:    "Bangalore",
-		Year:     2019,
-		Employee: emp,
-	}
-	achv.RecordAnAchievement()
-	achv.FetchAllAchievements()
-	achv.EmployeeDetails()
-}
-
-func dealWithEmployees() {
-	var employees []interfacez.Employee = utils.CreateEmployees()
-	utils.CreateAndDescribeEmployee("HR")
-	fmt.Println(employees)
 }
 
 func readWriteOperationUsingInterface() {

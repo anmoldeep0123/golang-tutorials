@@ -9,7 +9,7 @@ import (
 func GetEmployee(employeeRole string) interfacez.Employee {
 	var employee interfacez.Employee
 	if employeeRole == "Manager" {
-		fmt.Println("Constructing a Manager")
+		fmt.Println("GetEmployee : Constructing a Manager")
 		employee = model.Manager{
 			Alias:       "adee",
 			FirstName:   "Anmol",
@@ -19,7 +19,7 @@ func GetEmployee(employeeRole string) interfacez.Employee {
 			LeavesTaken: 3,
 		}
 	} else if employeeRole == "HR" {
-		fmt.Println("Constructing an HR")
+		fmt.Println("GetEmployee : Constructing an HR")
 		employee = model.HR{
 			Alias:       "sirani",
 			FirstName:   "Smrita",
@@ -29,7 +29,7 @@ func GetEmployee(employeeRole string) interfacez.Employee {
 			LeavesTaken: 11,
 		}
 	} else {
-		fmt.Println("Constructing an Operations")
+		fmt.Println("GetEmployee : Constructing an Operations")
 		employee = model.Operations{
 			Alias:       "rredyy",
 			FirstName:   "Ram",

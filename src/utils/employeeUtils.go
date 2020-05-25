@@ -11,7 +11,7 @@ func CreateEmployees() []interfacez.Employee {
 	employeeType := [count]string{"HR", "Operations", "HR", "Manager", "HR"}
 	for i := 0; i < count; i++ {
 		employees[i] = CreateEmployee(employeeType[i])
-		fmt.Println(employees[i])
+		fmt.Println("CreateEmployees : ", employees[i])
 	}
 	return employees[:]
 }

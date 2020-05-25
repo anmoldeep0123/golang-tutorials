@@ -23,7 +23,7 @@ func ListFiles(filePath string) []string {
 func ReadFileInMem(filePath string) string {
 	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
-		fmt.Println("Error while reading file ", err)
+		fmt.Println("ReadFileInMem: Error while reading file ", err)
 		return "nil"
 	}
 	return string(data)
@@ -44,7 +44,7 @@ func ReadInSmallChunks(filePath string) {
 	for {
 		n, err := r.Read(b)
 		if err != nil {
-			fmt.Println("Error reading file ", err)
+			fmt.Println("ReadInSmallChunks: Error reading file ", err)
 			break
 		}
 		fmt.Println(string(b[0:n]))
