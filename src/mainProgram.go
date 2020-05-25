@@ -9,11 +9,20 @@ import (
 )
 
 func main() {
-	recordAchievements()
+	var cache = utils.MemCache{
+		Cache: make(map[string]string),
+	}
+	cache.AddToCache("Anmol", "Deep")
+	cache.AddToCache("Nitika", "Qazi")
+	cache.AddToCache("Anila", "Koul")
+	fmt.Println(cache.Get("Anila"))
+	cache.AddToCache("Another", "Value")
+	cache.Remove("Nitika")
+	fmt.Println(cache.KeyExists("JUNK"))
 }
 
-func recordAchievements() {
-	var emp interfacez.Employee = utils.CreateEmployee("HR")
+func goCompositions() {
+	var emp interfacez.Employee = utils.CreateEmployee("Operations")
 	var achv interfacez.Achievements = model.WorkAchievements{
 		Name:     "Employee Of The Month",
 		Place:    "Bangalore",
